@@ -5,7 +5,9 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/pace-business/',
+    // GitHub Pages project sites are served from a repository subdirectory.
+    // Relative URLs keep the generated assets valid regardless of that name.
+    base: './',
 
     plugins: [react(), tailwindcss()],
 
