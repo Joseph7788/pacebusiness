@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { 
   ArrowUpLeft,
-  MoveRight,
+  MoveLeft,
   Code2,
   PenTool,
   BookOpen,
@@ -236,13 +236,13 @@ export default function App() {
           
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 font-sans tracking-widest text-lg sm:text-2xl font-bold text-zinc-300 uppercase">
             <span>ایده</span>
-            <MoveRight className="w-6 h-6 text-brand-400" />
+            <MoveLeft className="w-6 h-6 text-brand-400" />
             <span>استراتژی</span>
-            <MoveRight className="w-6 h-6 text-brand-400" />
+            <MoveLeft className="w-6 h-6 text-brand-400" />
             <span>طراحی</span>
-            <MoveRight className="w-6 h-6 text-brand-400" />
+            <MoveLeft className="w-6 h-6 text-brand-400" />
             <span>اجرا</span>
-            <MoveRight className="w-6 h-6 text-brand-400" />
+            <MoveLeft className="w-6 h-6 text-brand-400" />
             <span className="text-brand-400">رشد</span>
           </div>
         </div>
