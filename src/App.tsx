@@ -359,7 +359,7 @@ export default function App() {
       </section>
 
       {/* 10. FINAL CTA */}
-      <section id="contact" className="py-40 px-6 relative overflow-hidden bg-brand-400 text-zinc-950">
+      <section id="contact" className="py-40 px-6 relative overflow-hidden bg-brand-400/90 text-zinc-950">
         <div className="absolute inset-0 bg-grid-pattern opacity-10 mix-blend-multiply pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
@@ -368,7 +368,7 @@ export default function App() {
           <p className="text-xl md:text-2xl text-zinc-900 max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
             پروژه‌ات را با ما مطرح کن. از یک ایده خام تا یک برند حرفه‌ای، کنارت هستیم.
           </p>
-          <button onClick={() => setIsContactModalOpen(true)} className="group inline-flex items-center gap-3 px-10 py-5 bg-zinc-950 text-brand-400 font-bold text-xl hover:bg-zinc-800 transition-colors shadow-2xl">
+          <button onClick={() => setIsContactModalOpen(true)} className="group inline-flex items-center gap-3 px-10 py-5 bg-zinc-950 text-brand-400 font-bold text-xl hover:bg-zinc-800 transition-colors shadow-2xl cursor-pointer">
             شروع یک پروژه
             <ArrowUpLeft className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </button>
