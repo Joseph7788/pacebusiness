@@ -49,6 +49,8 @@ export default function App() {
     { id: '۰۴', title: 'تولید محتوای استراتژیک', icon: Share2 }
   ];
 
+  const tickerItems = ['طراحی وب', 'برندسازی', 'محتوا', 'دیجیتال'];
+
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-50 font-vazirmatn relative overflow-hidden">
       {/* 1. FLOATING HEADER */}
@@ -126,25 +128,24 @@ export default function App() {
       </section>
 
       {/* 3. MOVING SERVICE TICKER */}
-      <section className="py-6 border-y border-zinc-800/50 bg-zinc-900/20 overflow-hidden flex items-center">
-        <motion.div 
-          animate={{ x: [0, -2000] }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="flex items-center whitespace-nowrap"
-        >
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="flex items-center text-4xl font-black text-transparent bg-clip-text" style={{ WebkitTextStroke: '1px #3f3f46' }}>
-              <span className="mx-8">طراحی وب</span>
-              <Sparkles className="w-8 h-8 text-brand-400 mx-4" />
-              <span className="mx-8">برندسازی</span>
-              <Sparkles className="w-8 h-8 text-brand-400 mx-4" />
-              <span className="mx-8">محتوا</span>
-              <Sparkles className="w-8 h-8 text-brand-400 mx-4" />
-              <span className="mx-8">دیجیتال</span>
-              <Sparkles className="w-8 h-8 text-brand-400 mx-4" />
+      <section className="ticker py-6 border-y border-zinc-800/50 bg-zinc-900/20 overflow-hidden" aria-label="خدمات گام" dir="ltr">
+        <div className="ticker-track">
+          {[0, 1].map((groupIndex) => (
+            <div
+              key={groupIndex}
+              className="ticker-group text-4xl font-black text-transparent"
+              style={{ WebkitTextStroke: '1px #3f3f46' }}
+              aria-hidden={groupIndex === 1}
+            >
+              {tickerItems.map((item) => (
+                <span key={item} className="ticker-item" dir="rtl">
+                  <span className="mx-8">{item}</span>
+                  <Sparkles className="mx-4 h-8 w-8 text-brand-400" />
+                </span>
+              ))}
             </div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {/* 4. POSITIONING SECTION */}
