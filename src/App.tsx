@@ -88,8 +88,8 @@ export default function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-black leading-[1.1] tracking-tight mb-8">
-              کسب‌وکارت را <br/>
-              <span className="text-brand-400 inline-block mt-2">یک گام جلوتر ببر.</span>
+              کسب‌وکارتان را <br/>
+              <span className="text-brand-400 inline-block mt-2">یک <b className="font-extrabold">گام</b> جلوتر ببرید.</span>
             </h1>
             <p className="text-lg sm:text-xl text-zinc-400 max-w-lg leading-relaxed mb-12 font-light">
               طراحی، برندینگ و محتوای دیجیتال برای کسب‌وکارهایی که می‌خواهند حرفه‌ای‌تر دیده شوند و سریع‌تر رشد کنند.
@@ -100,7 +100,7 @@ export default function App() {
                 <ArrowUpLeft className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
               <a href="#services" className="group w-full sm:w-auto flex justify-center items-center gap-2 px-8 py-4 border border-zinc-700 text-zinc-300 font-medium text-lg hover:border-brand-400 hover:text-brand-400 transition-colors">
-                دیدن خدمات
+                مشاهده خدمات
               </a>
             </div>
           </motion.div>
@@ -154,11 +154,11 @@ export default function App() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-8">
-                فقط اجرا نمی‌کنیم. <br/>
+                تنها اجرا نمی‌کنیم. <br/>
                 <span className="text-zinc-500">برای رشد طراحی می‌کنیم.</span>
               </h2>
               <p className="text-zinc-400 text-lg leading-relaxed max-w-md font-light">
-                ما به هر پروژه به عنوان یک سرمایه‌گذاری برای آینده برند شما نگاه می‌کنیم. تلفیق استراتژی تجاری دقیق با هنر طراحی بصری، رویکرد ما در گام است.
+                ما به هر پروژه به عنوان یک سرمایه‌گذاری برای آینده برند شما نگاه می‌کنیم. تلفیق استراتژی تجاری دقیق با هنر طراحی بصری، رویکرد ما در Paceweb است.
               </p>
             </div>
             
@@ -183,7 +183,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-20">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
-              هر چیزی که برندت <br/>
+              هر چیزی که برند شما <br/>
               <span className="text-brand-400">برای حرکت نیاز دارد.</span>
             </h2>
           </div>
@@ -194,7 +194,7 @@ export default function App() {
                 <div 
                   key={service.id}
                   className={`group flex items-center justify-between p-8 cursor-pointer border-b border-zinc-800/50 transition-all duration-300 ${activeService === idx ? 'bg-zinc-900 border-brand-400/30' : 'hover:bg-zinc-900/50'}`}
-                  onClick={() => setActiveService(idx)}
+                  onMouseEnter={() => setActiveService(idx)}
                 >
                   <div className="flex items-center gap-8">
                     <span className="text-xl font-bold text-zinc-600 font-sans tracking-widest">{service.id}</span>
@@ -237,7 +237,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black leading-tight mb-20">
             از ایده تا اجرا. <br/>
-            <span className="text-zinc-500">بدون تکه‌تکه شدن برند.</span>
+            <span className="text-zinc-500">بدون چندپارچگی برند.</span>
           </h2>
           
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 font-sans tracking-widest text-lg sm:text-2xl font-bold text-zinc-300 uppercase">
@@ -259,8 +259,8 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-16 border-b border-zinc-800/50 pb-8">
             <h2 className="text-4xl md:text-5xl font-black">
-              چیزی که می‌سازیم، <br/>
-              باید دیده شود.
+              چیزی می‌سازیم <br/>
+              که باید دیده شود.
             </h2>
             <a href="#" className="hidden sm:flex items-center gap-2 text-zinc-400 hover:text-brand-400 transition-colors font-medium">
               همه نمونه‌کارها
@@ -316,7 +316,7 @@ export default function App() {
           
           {/* Why Pace */}
           <div>
-            <h2 className="text-4xl font-black mb-12">چرا گام؟</h2>
+            <h2 className="text-4xl font-black mb-12">چرا ما؟</h2>
             <div className="flex flex-col gap-10">
               {[
                 { title: "یکپارچه", desc: "از اولین تماس تا تحویل نهایی، تمام نیازهای برند شما تحت یک سقف و با یک لحن ثابت مدیریت می‌شود." },
