@@ -25,6 +25,10 @@ export default function App() {
   const { scrollYProgress } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeService, setActiveService] = useState(0);
+  const toPersianDigits = (value: string | number) =>
+    value
+      .toString()
+      .replace(/\d/g, (digit) => '۰۱۲۳۴۵۶۷۸۹'[Number(digit)]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,10 +39,10 @@ export default function App() {
   }, []);
 
   const services = [
-    { id: "01", title: "طراحی سایت اختصاصی", icon: Code2 },
-    { id: "02", title: "هویت بصری و برندینگ", icon: PenTool },
-    { id: "03", title: "کاتالوگ و اقلام سازمانی", icon: BookOpen },
-    { id: "04", title: "تولید محتوای استراتژیک", icon: Share2 }
+    { id: '۰۱', title: 'طراحی سایت اختصاصی', icon: Code2 },
+    { id: '۰۲', title: 'هویت بصری و برندینگ', icon: PenTool },
+    { id: '۰۳', title: 'کاتالوگ و اقلام سازمانی', icon: BookOpen },
+    { id: '۰۴', title: 'تولید محتوای استراتژیک', icon: Share2 }
   ];
 
   return (
@@ -50,7 +54,7 @@ export default function App() {
             <div className="w-8 h-8 bg-brand-400 rounded-sm rotate-45 flex items-center justify-center">
               <div className="w-4 h-4 bg-zinc-950 rotate-45" />
             </div>
-            <span className="text-2xl font-black tracking-widest uppercase mt-1">Pace</span>
+            <span className="text-2xl font-black tracking-widest mt-1">گام</span>
           </div>
           <div className="hidden lg:flex items-center gap-10 text-sm font-medium text-zinc-400">
             <a href="#home" className="hover:text-zinc-50 transition-colors">خانه</a>
@@ -78,7 +82,7 @@ export default function App() {
           >
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-black leading-[1.1] tracking-tight mb-8">
               کسب‌وکارت را <br/>
-              <span className="text-brand-400 inline-block mt-2">یک Pace جلوتر ببر.</span>
+              <span className="text-brand-400 inline-block mt-2">یک گام جلوتر ببر.</span>
             </h1>
             <p className="text-lg sm:text-xl text-zinc-400 max-w-lg leading-relaxed mb-12 font-light">
               طراحی، برندینگ و محتوای دیجیتال برای کسب‌وکارهایی که می‌خواهند حرفه‌ای‌تر دیده شوند و سریع‌تر رشد کنند.
@@ -104,7 +108,7 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-400/20 to-transparent mix-blend-overlay z-10" />
               <img 
                 src={heroImg} 
-                alt="Pace Business Momentum" 
+                alt="شتاب کسب‌وکار گام"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -125,13 +129,13 @@ export default function App() {
         >
           {[...Array(4)].map((_, i) => (
             <div key={i} className="flex items-center text-4xl font-black text-transparent bg-clip-text" style={{ WebkitTextStroke: '1px #3f3f46' }}>
-              <span className="mx-8">WEB DESIGN</span>
+              <span className="mx-8">طراحی وب</span>
               <Sparkles className="w-8 h-8 text-brand-400 mx-4" />
-              <span className="mx-8">BRANDING</span>
+              <span className="mx-8">برندسازی</span>
               <Sparkles className="w-8 h-8 text-brand-400 mx-4" />
-              <span className="mx-8">CONTENT</span>
+              <span className="mx-8">محتوا</span>
               <Sparkles className="w-8 h-8 text-brand-400 mx-4" />
-              <span className="mx-8">DIGITAL</span>
+              <span className="mx-8">دیجیتال</span>
               <Sparkles className="w-8 h-8 text-brand-400 mx-4" />
             </div>
           ))}
@@ -148,19 +152,19 @@ export default function App() {
                 <span className="text-zinc-500">برای رشد طراحی می‌کنیم.</span>
               </h2>
               <p className="text-zinc-400 text-lg leading-relaxed max-w-md font-light">
-                ما به هر پروژه به عنوان یک سرمایه‌گذاری برای آینده برند شما نگاه می‌کنیم. تلفیق استراتژی تجاری دقیق با هنر طراحی بصری، رویکرد ما در Pace است.
+                ما به هر پروژه به عنوان یک سرمایه‌گذاری برای آینده برند شما نگاه می‌کنیم. تلفیق استراتژی تجاری دقیق با هنر طراحی بصری، رویکرد ما در گام است.
               </p>
             </div>
             
             <div className="grid sm:grid-cols-3 gap-8 pt-4">
               {[
-                { title: "Strategy", icon: Target },
-                { title: "Identity", icon: Layers },
-                { title: "Growth", icon: Rocket }
+                { title: 'استراتژی', icon: Target },
+                { title: 'هویت', icon: Layers },
+                { title: 'رشد', icon: Rocket }
               ].map((item, idx) => (
                 <div key={idx} className="border-t border-zinc-800 pt-6">
                   <item.icon className="w-8 h-8 text-brand-400 mb-6" strokeWidth={1.5} />
-                  <h3 className="text-2xl font-bold font-sans tracking-wider" dir="ltr">{item.title}</h3>
+                  <h3 className="text-2xl font-bold font-sans tracking-wider">{item.title}</h3>
                 </div>
               ))}
             </div>
@@ -230,16 +234,16 @@ export default function App() {
             <span className="text-zinc-500">بدون تکه‌تکه شدن برند.</span>
           </h2>
           
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 font-sans tracking-widest text-lg sm:text-2xl font-bold text-zinc-300 uppercase" dir="ltr">
-            <span>Idea</span>
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 font-sans tracking-widest text-lg sm:text-2xl font-bold text-zinc-300 uppercase">
+            <span>ایده</span>
             <MoveRight className="w-6 h-6 text-brand-400" />
-            <span>Strategy</span>
+            <span>استراتژی</span>
             <MoveRight className="w-6 h-6 text-brand-400" />
-            <span>Design</span>
+            <span>طراحی</span>
             <MoveRight className="w-6 h-6 text-brand-400" />
-            <span>Launch</span>
+            <span>اجرا</span>
             <MoveRight className="w-6 h-6 text-brand-400" />
-            <span className="text-brand-400">Growth</span>
+            <span className="text-brand-400">رشد</span>
           </div>
         </div>
       </section>
@@ -260,9 +264,9 @@ export default function App() {
 
           <div className="grid gap-20">
             {[
-              { title: "کاتالوگ و برندینگ لوکس", category: "Branding & Print", img: work1Img },
-              { title: "اپلیکیشن سبک زندگی", category: "UI/UX Design", img: work2Img },
-              { title: "کمپین شبکه‌های اجتماعی", category: "Social Content", img: work3Img }
+              { title: 'کاتالوگ و برندینگ لوکس', category: 'برندسازی و چاپ', img: work1Img },
+              { title: 'اپلیکیشن سبک زندگی', category: 'طراحی رابط و تجربه کاربری', img: work2Img },
+              { title: 'کمپین شبکه‌های اجتماعی', category: 'محتوای شبکه‌های اجتماعی', img: work3Img }
             ].map((work, idx) => (
               <motion.div 
                 key={idx}
@@ -291,7 +295,7 @@ export default function App() {
                 <div className={`w-full lg:w-[80%] flex justify-between items-start ${idx % 2 !== 0 ? 'flex-row-reverse' : ''}`}>
                   <div>
                     <h3 className="text-2xl md:text-3xl font-bold mb-2">{work.title}</h3>
-                    <p className="text-zinc-500 font-sans tracking-wider" dir="ltr">{work.category}</p>
+                    <p className="text-zinc-500 font-sans tracking-wider">{work.category}</p>
                   </div>
                 </div>
               </motion.div>
@@ -306,7 +310,7 @@ export default function App() {
           
           {/* Why Pace */}
           <div>
-            <h2 className="text-4xl font-black mb-12">چرا Pace؟</h2>
+            <h2 className="text-4xl font-black mb-12">چرا گام؟</h2>
             <div className="flex flex-col gap-10">
               {[
                 { title: "یکپارچه", desc: "از اولین تماس تا تحویل نهایی، تمام نیازهای برند شما تحت یک سقف و با یک لحن ثابت مدیریت می‌شود." },
@@ -315,7 +319,7 @@ export default function App() {
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-6">
                   <div className="w-12 h-12 shrink-0 border border-brand-400/30 flex items-center justify-center text-brand-400 font-bold font-sans">
-                    0{idx + 1}
+                    {toPersianDigits(`0${idx + 1}`)}
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-zinc-100">{item.title}</h3>
@@ -331,14 +335,14 @@ export default function App() {
             <h2 className="text-4xl font-black mb-12">همکاری با ما چطور پیش می‌رود؟</h2>
             <div className="grid grid-cols-2 gap-x-6 gap-y-12 pt-2">
               {[
-                { step: "01", name: "Discover", label: "شناخت کسب‌وکار و نیازها" },
-                { step: "02", name: "Define", label: "تدوین استراتژی و ساختار" },
-                { step: "03", name: "Design", label: "طراحی و توسعه" },
-                { step: "04", name: "Launch", label: "رونمایی و رشد" }
+                { step: '۰۱', name: 'شناخت', label: 'شناخت کسب‌وکار و نیازها' },
+                { step: '۰۲', name: 'تعریف', label: 'تدوین استراتژی و ساختار' },
+                { step: '۰۳', name: 'طراحی', label: 'طراحی و توسعه' },
+                { step: '۰۴', name: 'اجرا', label: 'رونمایی و رشد' }
               ].map((item, idx) => (
                 <div key={idx}>
                   <div className="text-brand-400/50 font-black text-4xl mb-2 font-sans">{item.step}</div>
-                  <h3 className="text-xl font-bold font-sans tracking-wide text-zinc-200 mb-2" dir="ltr">{item.name}</h3>
+                  <h3 className="text-xl font-bold font-sans tracking-wide text-zinc-200 mb-2">{item.name}</h3>
                   <p className="text-zinc-500 text-sm">{item.label}</p>
                 </div>
               ))}
@@ -353,7 +357,7 @@ export default function App() {
         <div className="absolute inset-0 bg-grid-pattern opacity-10 mix-blend-multiply pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
-            آماده‌ای یک Pace <br/>جلوتر بروی؟
+            آماده‌ای یک گام <br/>جلوتر بروی؟
           </h2>
           <p className="text-xl md:text-2xl text-zinc-900 max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
             پروژه‌ات را با ما مطرح کن. از یک ایده خام تا یک برند حرفه‌ای، کنارت هستیم.
@@ -375,10 +379,10 @@ export default function App() {
                 <div className="w-6 h-6 bg-zinc-700 rounded-sm rotate-45 flex items-center justify-center">
                   <div className="w-3 h-3 bg-zinc-950 rotate-45" />
                 </div>
-                <span className="text-xl font-black tracking-widest uppercase mt-1 text-zinc-300">Pace</span>
+                <span className="text-xl font-black tracking-widest mt-1 text-zinc-300">گام</span>
               </div>
-              <p className="text-zinc-500 font-sans tracking-wide mb-8 max-w-xs" dir="ltr">
-                Digital experiences for ambitious businesses.
+              <p className="text-zinc-500 font-sans tracking-wide mb-8 max-w-xs">
+                تجربه‌های دیجیتال برای کسب‌وکارهای بلندپرواز.
               </p>
             </div>
 
@@ -395,22 +399,22 @@ export default function App() {
 
             <div>
               <h4 className="font-bold mb-6 text-zinc-100">ارتباط با ما</h4>
-              <ul className="flex flex-col gap-4 text-zinc-400" dir="ltr">
+              <ul className="flex flex-col gap-4 text-zinc-400">
                 <li>
                   <a href="#" className="flex items-center gap-2 hover:text-brand-400 transition-colors text-right justify-end">
-                    <span>Instagram</span>
+                    <span>اینستاگرام</span>
                     <Hash className="w-4 h-4" />
                   </a>
                 </li>
                 <li>
                   <a href="#" className="flex items-center gap-2 hover:text-brand-400 transition-colors text-right justify-end">
-                    <span>LinkedIn</span>
+                    <span>لینکدین</span>
                     <Globe className="w-4 h-4" />
                   </a>
                 </li>
                 <li>
                   <a href="#" className="flex items-center gap-2 hover:text-brand-400 transition-colors text-right justify-end">
-                    <span>Telegram</span>
+                    <span>تلگرام</span>
                     <Mail className="w-4 h-4" />
                   </a>
                 </li>
@@ -420,9 +424,9 @@ export default function App() {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-zinc-900 text-zinc-600 text-sm">
-            <p>© {new Date().getFullYear()} Pace Business. تمامی حقوق محفوظ است.</p>
+            <p>© {toPersianDigits(new Date().getFullYear())} گام بیزنس. تمامی حقوق محفوظ است.</p>
             <div className="flex gap-6 mt-4 md:mt-0 font-sans tracking-wide">
-              <span>Made with momentum.</span>
+              <span>ساخته‌شده با شتاب.</span>
             </div>
           </div>
         </div>
@@ -430,4 +434,3 @@ export default function App() {
     </div>
   );
 }
-
