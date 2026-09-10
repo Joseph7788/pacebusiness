@@ -23,6 +23,7 @@ import heroImg from './assets/images/hero_abstract_3d_1788943781361.jpg';
 import work1Img from './assets/images/featured_work_1_1788943795954.jpg';
 import work2Img from './assets/images/featured_work_2_1788943807105.jpg';
 import work3Img from './assets/images/featured_work_3_1788943817811.jpg';
+import logoImg from './assets/images/logo.png';
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -58,7 +59,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a href="#home" className="flex items-center gap-3">
             <img 
-              src="/assets/logo.png" 
+              src={logoImg} 
               alt="گام" 
               className="h-10 w-auto object-contain"
             />
@@ -383,7 +384,7 @@ export default function App() {
             <div className="lg:col-span-2">
               <a href="#home" className="inline-block mb-6">
                 <img 
-                  src="/assets/logo.png" 
+                  src={logoImg} 
                   alt="گام" 
                   className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
                 />
