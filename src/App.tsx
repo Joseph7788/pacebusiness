@@ -13,7 +13,10 @@ import {
   Sparkles,
   Layers,
   Target,
-  Rocket
+  Rocket,
+  Camera,
+  Send,
+  X
 } from 'lucide-react';
 
 import heroImg from './assets/images/hero_abstract_3d_1788943781361.jpg';
@@ -25,6 +28,7 @@ export default function App() {
   const { scrollYProgress } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeService, setActiveService] = useState(0);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const toPersianDigits = (value: string | number) =>
     value
       .toString()
@@ -50,12 +54,13 @@ export default function App() {
       {/* 1. FLOATING HEADER */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${isScrolled ? 'bg-zinc-950/80 backdrop-blur-xl border-zinc-800/50 py-4' : 'bg-transparent border-transparent py-8'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-brand-400 rounded-sm rotate-45 flex items-center justify-center">
-              <div className="w-4 h-4 bg-zinc-950 rotate-45" />
-            </div>
-            <span className="text-2xl font-black tracking-widest mt-1">گام</span>
-          </div>
+          <a href="#home" className="flex items-center gap-3">
+            <img 
+              src="/assets/logo.png" 
+              alt="گام" 
+              className="h-10 w-auto object-contain"
+            />
+          </a>
           <div className="hidden lg:flex items-center gap-10 text-sm font-medium text-zinc-400">
             <a href="#home" className="hover:text-zinc-50 transition-colors">خانه</a>
             <a href="#services" className="hover:text-zinc-50 transition-colors">خدمات</a>
@@ -63,7 +68,7 @@ export default function App() {
             <a href="#about" className="hover:text-zinc-50 transition-colors">درباره ما</a>
             <a href="#contact" className="hover:text-zinc-50 transition-colors">تماس با ما</a>
           </div>
-          <a href="#contact" className="group flex items-center gap-2 px-6 py-2.5 bg-brand-400 text-zinc-950 font-bold hover:bg-brand-300 transition-colors">
+          <a href="#contact" className="group flex items-center gap-2 px-6 py-2.5 bg-brand-400 text-zinc-950 font-bold hover:bg-brand-300 transition-colors" onClick={(e) => { e.preventDefault(); setIsContactModalOpen(true); }}>
             شروع یک پروژه
             <ArrowUpLeft className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </a>
@@ -88,10 +93,10 @@ export default function App() {
               طراحی، برندینگ و محتوای دیجیتال برای کسب‌وکارهایی که می‌خواهند حرفه‌ای‌تر دیده شوند و سریع‌تر رشد کنند.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-6">
-              <a href="#contact" className="group w-full sm:w-auto flex justify-center items-center gap-2 px-8 py-4 bg-brand-400 text-zinc-950 font-bold text-lg hover:bg-brand-300 transition-colors">
+              <button onClick={() => setIsContactModalOpen(true)} className="group w-full sm:w-auto flex justify-center items-center gap-2 px-8 py-4 bg-brand-400 text-zinc-950 font-bold text-lg hover:bg-brand-300 transition-colors">
                 شروع یک پروژه
                 <ArrowUpLeft className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
+              </button>
               <a href="#services" className="group w-full sm:w-auto flex justify-center items-center gap-2 px-8 py-4 border border-zinc-700 text-zinc-300 font-medium text-lg hover:border-brand-400 hover:text-brand-400 transition-colors">
                 دیدن خدمات
               </a>
@@ -362,10 +367,10 @@ export default function App() {
           <p className="text-xl md:text-2xl text-zinc-900 max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
             پروژه‌ات را با ما مطرح کن. از یک ایده خام تا یک برند حرفه‌ای، کنارت هستیم.
           </p>
-          <a href="mailto:hello@pacebusiness.com" className="group inline-flex items-center gap-3 px-10 py-5 bg-zinc-950 text-brand-400 font-bold text-xl hover:bg-zinc-800 transition-colors shadow-2xl">
+          <button onClick={() => setIsContactModalOpen(true)} className="group inline-flex items-center gap-3 px-10 py-5 bg-zinc-950 text-brand-400 font-bold text-xl hover:bg-zinc-800 transition-colors shadow-2xl">
             شروع یک پروژه
             <ArrowUpLeft className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -375,12 +380,13 @@ export default function App() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
             
             <div className="lg:col-span-2">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-6 h-6 bg-zinc-700 rounded-sm rotate-45 flex items-center justify-center">
-                  <div className="w-3 h-3 bg-zinc-950 rotate-45" />
-                </div>
-                <span className="text-xl font-black tracking-widest mt-1 text-zinc-300">گام</span>
-              </div>
+              <a href="#home" className="inline-block mb-6">
+                <img 
+                  src="/assets/logo.png" 
+                  alt="گام" 
+                  className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </a>
               <p className="text-zinc-500 font-sans tracking-wide mb-8 max-w-xs">
                 تجربه‌های دیجیتال برای کسب‌وکارهای بلندپرواز.
               </p>
@@ -398,24 +404,24 @@ export default function App() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-6 text-zinc-100">ارتباط با ما</h4>
-              <ul className="flex flex-col gap-4 text-zinc-400">
+              <h4 className="font-bold mb-6 text-zinc-100 text-right">ارتباط با ما</h4>
+              <ul className="flex flex-col gap-4 text-zinc-400 items-end">
                 <li>
-                  <a href="#" className="flex items-center gap-2 hover:text-brand-400 transition-colors text-right justify-end">
+                  <a href="mailto:pacebusiness@proton.me" className="flex items-center gap-2 hover:text-brand-400 transition-colors">
                     <span>ایمیل</span>
                     <Mail className="w-4 h-4" />
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex items-center gap-2 hover:text-brand-400 transition-colors text-right justify-end">
+                  <a href="https://www.instagram.com/pacebzns/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand-400 transition-colors">
                     <span>اینستاگرام</span>
-                    <Hash className="w-4 h-4" />
+                    <Camera className="w-4 h-4" />
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex items-center gap-2 hover:text-brand-400 transition-colors text-right justify-end">
+                  <a href="https://t.me/pace_business" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand-400 transition-colors">
                     <span>تلگرام</span>
-                    <Mail className="w-4 h-4" />
+                    <Send className="w-4 h-4" />
                   </a>
                 </li>
               </ul>
@@ -431,6 +437,96 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      <AnimatePresence>
+        {isContactModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-zinc-950/90 backdrop-blur-md px-6"
+            onClick={() => setIsContactModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="bg-zinc-900 border border-zinc-800 p-8 md:p-12 max-w-lg w-full relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setIsContactModalOpen(false)}
+                className="absolute top-4 left-4 text-zinc-500 hover:text-zinc-300 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              <h3 className="text-3xl md:text-4xl font-black mb-4 text-center">
+                راه ارتباطی خود را انتخاب کنید
+              </h3>
+              <p className="text-zinc-400 text-center mb-8 leading-relaxed">
+                از طریق یکی از روش‌های زیر با ما در تماس باشید
+              </p>
+
+              <div className="flex flex-col gap-4">
+                <a
+                  href="mailto:pacebusiness@proton.me"
+                  className="group flex items-center justify-between p-6 border border-zinc-800 hover:border-brand-400 hover:bg-zinc-800/50 transition-all"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-brand-400/10 flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-brand-400" />
+                    </div>
+                    <div className="text-right">
+                      <div className="font-bold text-zinc-100 mb-1">ایمیل</div>
+                      <div className="text-sm text-zinc-500 font-sans" dir="ltr">pacebusiness@proton.me</div>
+                    </div>
+                  </div>
+                  <ArrowUpLeft className="w-5 h-5 text-zinc-600 group-hover:text-brand-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/pacebzns/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-6 border border-zinc-800 hover:border-brand-400 hover:bg-zinc-800/50 transition-all"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-brand-400/10 flex items-center justify-center">
+                      <Camera className="w-6 h-6 text-brand-400" />
+                    </div>
+                    <div className="text-right">
+                      <div className="font-bold text-zinc-100 mb-1">اینستاگرام</div>
+                      <div className="text-sm text-zinc-500 font-sans" dir="ltr">@pacebzns</div>
+                    </div>
+                  </div>
+                  <ArrowUpLeft className="w-5 h-5 text-zinc-600 group-hover:text-brand-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                </a>
+
+                <a
+                  href="https://t.me/pace_business"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-6 border border-zinc-800 hover:border-brand-400 hover:bg-zinc-800/50 transition-all"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-brand-400/10 flex items-center justify-center">
+                      <Send className="w-6 h-6 text-brand-400" />
+                    </div>
+                    <div className="text-right">
+                      <div className="font-bold text-zinc-100 mb-1">تلگرام</div>
+                      <div className="text-sm text-zinc-500 font-sans" dir="ltr">@pace_business</div>
+                    </div>
+                  </div>
+                  <ArrowUpLeft className="w-5 h-5 text-zinc-600 group-hover:text-brand-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
