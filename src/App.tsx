@@ -402,14 +402,14 @@ export default function App() {
               <ul className="flex flex-col gap-4 text-zinc-400">
                 <li>
                   <a href="#" className="flex items-center gap-2 hover:text-brand-400 transition-colors text-right justify-end">
-                    <span>اینستاگرام</span>
-                    <Hash className="w-4 h-4" />
+                    <span>ایمیل</span>
+                    <Mail className="w-4 h-4" />
                   </a>
                 </li>
                 <li>
                   <a href="#" className="flex items-center gap-2 hover:text-brand-400 transition-colors text-right justify-end">
-                    <span>لینکدین</span>
-                    <Globe className="w-4 h-4" />
+                    <span>اینستاگرام</span>
+                    <Hash className="w-4 h-4" />
                   </a>
                 </li>
                 <li>
@@ -426,7 +426,7 @@ export default function App() {
           <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-zinc-900 text-zinc-600 text-sm">
             <p>© {toPersianDigits(new Date().getFullYear())} گام بیزنس. تمامی حقوق محفوظ است.</p>
             <div className="flex gap-6 mt-4 md:mt-0 font-sans tracking-wide">
-              <span>ساخته‌شده با شتاب.</span>
+              <span>ساخته‌شده توسط Paceweb.</span>
             </div>
           </div>
         </div>
