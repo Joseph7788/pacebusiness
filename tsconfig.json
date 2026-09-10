@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ES2023",
     "experimentalDecorators": true,
-    "useDefineForClassFields": false,
+    "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": [
-      "ES2022",
+      "ES2023",
       "DOM",
       "DOM.Iterable"
     ],
@@ -13,7 +13,12 @@
     "moduleResolution": "bundler",
     "isolatedModules": true,
     "moduleDetection": "force",
+    "resolveJsonModule": true,
     "allowJs": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
     "jsx": "react-jsx",
     "paths": {
       "@/*": [
@@ -22,5 +27,6 @@
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "include": ["src"]
 }
